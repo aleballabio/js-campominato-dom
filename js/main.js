@@ -4,6 +4,7 @@ const difficulty = document.querySelector("#difficulty");
 
 const grid = document.querySelector(".grid")
 grid.style.display = "none";
+let punteggio = document.querySelector(".punteggio");
 
 
 
@@ -17,19 +18,18 @@ function play() {
     grid.style.display = "flex";
     let difficultyValue = difficulty.value;
     let score = 0;
-    let NumeriBombe = 0;
+    let NumeriBombe = [];
 
     //Difficutly of the Game
 
     switch (difficultyValue) {
 
         case "Facile":
-            score = 0
+            score = 0;
             NumeriBombe = generazioneBombe(49);
             console.log(NumeriBombe);
 
             for (let times = 1; times <= 49; times++) {
-
                 const ElementCell = document.createElement("div");
                 ElementCell.classList.add("cell");
                 ElementCell.classList.add("small");
@@ -50,14 +50,24 @@ function play() {
                     else {
                         ElementCell.style.backgroundColor = "green";
                         score++;
+                        punteggio.innerHTML = score;
                         ElementCell.style.pointerEvents = "none";
+
                     }
+
+
                 });
 
                 grid.append(ElementCell);
 
                 ElementCell.innerHTML += times;
+
+                if (score = (49 - 16)) {
+                    console.log(score);
+                    alert("Hai vinto! Complimenti!");
+                }
             }
+
 
             break;
 
@@ -88,6 +98,7 @@ function play() {
                     else {
                         ElementCell.style.backgroundColor = "green";
                         score++;
+                        punteggio.innerHTML = score;
                         ElementCell.style.pointerEvents = "none";
                     }
                 });
@@ -95,6 +106,8 @@ function play() {
                 grid.append(ElementCell);
 
                 ElementCell.innerHTML += times;
+
+
             }
 
             break;
@@ -114,11 +127,14 @@ function play() {
 
                     if (NumeriBombe.includes(times)) {
                         ElementCell.style.backgroundColor = "red";
-                        if (alert("Hai Perso! Ma hai totalizzato" + " " + score + " " + "punti!")) { }
+                        if (alert("Hai Perso! Ma hai totalizzato" + " " + score + " " + "punti!")) {
+
+                        }
 
                         else {
                             ElementCell.style.backgroundColor = "red";
                             grid.style.display = "none";
+
 
                         }
                     }
@@ -126,6 +142,7 @@ function play() {
                     else {
                         ElementCell.style.backgroundColor = "green";
                         score++;
+                        punteggio.innerHTML = score;
                         ElementCell.style.pointerEvents = "none";
                     }
                 });
@@ -154,14 +171,13 @@ function generazioneBombe(caselle) {
     while (arrBombs.length < 16) {
 
         const numberRandom = randomNumber(1, caselle)
-        console.log(numberRandom)
 
         if (arrBombs[numberRandom] == numberRandom) {
 
         } else {
             arrBombs.push(numberRandom);
-            console.log(numberRandom);
         }
     }
+    ;
     return arrBombs;
 }

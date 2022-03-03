@@ -13,7 +13,7 @@ buttonPlay.addEventListener("click", play);
 
 
 function play() {
-    grid.innerHTML = ""
+    grid.innerHTML = "";
     grid.style.display = "flex";
     let difficultyValue = difficulty.value;
     let score = 0;
@@ -27,7 +27,6 @@ function play() {
             score = 0
             NumeriBombe = generazioneBombe(49);
             console.log(NumeriBombe);
-            arrCells = [];
 
             for (let times = 1; times <= 49; times++) {
 
@@ -66,13 +65,12 @@ function play() {
             score = 0
             NumeriBombe = generazioneBombe(81);
             console.log(NumeriBombe);
-            arrCells = [];
 
             for (let times = 1; times <= 81; times++) {
 
                 const ElementCell = document.createElement("div");
                 ElementCell.classList.add("cell");
-                ElementCell.classList.add("small");
+                ElementCell.classList.add("medium");
 
                 ElementCell.addEventListener("click", function () {
 
@@ -105,13 +103,12 @@ function play() {
             score = 0
             NumeriBombe = generazioneBombe(100);
             console.log(NumeriBombe);
-            arrCells = [];
 
             for (let times = 1; times <= 100; times++) {
 
                 const ElementCell = document.createElement("div");
                 ElementCell.classList.add("cell");
-                ElementCell.classList.add("small");
+                ElementCell.classList.add("big");
 
                 ElementCell.addEventListener("click", function () {
 

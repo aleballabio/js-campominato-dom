@@ -48,6 +48,8 @@ function play() {
                     }
 
                     else {
+
+
                         ElementCell.style.backgroundColor = "green";
                         score++;
                         punteggio.innerHTML = score;
@@ -62,7 +64,7 @@ function play() {
 
                 ElementCell.innerHTML += times;
 
-                if (score = (49 - 16)) {
+                if (punteggio.innerHTML == 49 - NumeriBombe) {
                     console.log(score);
                     alert("Hai vinto! Complimenti!");
                 }
